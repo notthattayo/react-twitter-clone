@@ -1,0 +1,201 @@
+.login{
+    display: flex;
+    flex:1; 
+}
+
+.login__banner {
+    flex: 0.5;
+    background-color:rgb(113, 201, 248);
+    height: 100vh;
+}
+.login__bannerTextContainer{
+    margin-top: -70% !important;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login__bannerText{
+    z-index: 200;
+    color:white;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    /* margin-left: 25%;
+    margin-right: 25%; */
+    font-weight: 600;
+}
+.login__bannerText > p{
+    padding-left: 5px;
+}
+
+.login__formContainer{
+    flex: 0.5;
+}
+.login__formInputContainer {
+  display: flex;
+  
+}
+.login__formInputContainer a{
+    text-decoration: none;
+    
+  }
+.login__formInput {
+    
+    flex:0.33;
+    background-color: var(--twitter-background);
+    padding:5px;
+    margin: 2%;
+    
+}
+
+.login__formInput p{
+    margin-top: -5px;
+    font-size: 0.9em;
+    font-weight: 400;
+    color:#333333;
+}
+.login__formInput input{
+    border:none;
+    background-color: var(--twitter-background);
+    border-bottom: #333333 solid 1px;
+    height: 20px;
+}
+
+.login__twitterSvg{
+    max-height:100vh;
+    width: 100%;
+    overflow: hidden;
+    font-size: 1.5em !important;
+} 
+
+.login__button{
+    color: var(--twitter-color) !important;
+    border: var(--twitter-color) solid 1px !important;
+    border-radius: 20px !important;
+    padding:10px !important;
+    margin-top: 30px !important;
+    font-size: 0.8em !important;
+    height: 30px;
+
+}
+
+.login__section{
+    vertical-align: center;
+    align-self: center;
+    max-width: 380px;
+    margin-top: 5em ;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 20px;
+    font-size: 1.3em;
+}
+.login__section >p {
+    font-weight: 800;
+    font-size: 0.7em !important;
+}
+.login__twitterIcon{
+    color: var(--twitter-color) !important;
+}
+.login__signUpButton{
+    background-color: var(--twitter-color) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    margin-top: 20px !important;
+}
+.login__loginButton{
+    display: none !important;
+}
+
+
+.MuiPaper-root {
+  height: 100vh!important;
+  width : 70vw !important;
+  border-radius: 15px !important;
+}
+
+.login__dialog .login__twitterIcon{
+    text-align: center;
+    margin: 0.5em auto;
+    font-size: 1.8em !important;
+}
+.login__dialog h3{
+    padding-left: 20px;
+    font-size: 1.4em;
+}
+
+.login__signUpDiv .login__formInput{
+    margin-bottom: 7% !important;
+}
+
+.login__signUpDiv .login__formInput p {
+    padding-top: 5px;
+}
+
+.login__signUpDiv .login__formInput input{
+    width: 100% !important;
+}
+
+.login__formError{
+    background-color: red;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    font-size: 0.8em;
+    float: right;
+}
+
+@media only screen and (max-width: 769px) {
+    .login{
+        flex-direction: column-reverse !important;
+    }
+    
+    .login .login__formInputContainer{
+        display: none;
+    }
+    .login .login__section{
+        margin-top: 0;
+        margin-bottom: 2%;
+    }
+    .login__formInput input:focus {
+        border: 4px solid var(--twitter-color) !important;
+        
+    }
+
+    .login__loginButton{
+        display: block !important;
+        background-color: white!important;
+            color: var(--twitter-color)  !important;
+            border: 2px solid var(--twitter-color) !important;
+            font-weight: 900 !important;
+            text-transform: inherit !important;
+            border-radius: 30px !important;
+            height: 50px !important;
+            margin-top: 20px !important;
+    }
+    .login__signUpDiv .login__formInput{
+        margin-bottom: 7% !important;
+    }
+    
+    .login__signUpDiv .login__formInput p {
+        padding-top: 5px;
+    }
+    
+    .login__signUpDiv .login__formInput input{
+        width: 100% !important;
+    }
+    .login__bannerTextContainer{
+        margin-top: -95% !important;
+        
+    }
+    .MuiPaper-root {
+        width : 100vw !important;
+      }
+      
+
+  }
