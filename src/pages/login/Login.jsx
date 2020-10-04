@@ -63,7 +63,7 @@ const Login = () => {
       currentUser.username?redirectTo('home'):redirectTo('profile')
     })
     .catch(function(error) {
-        console.log("Error getting documents: ", error);
+        toast.error("Error getting documents: ", error.message);
     });
      toast.success('login successful');
     }).catch((error)=>{
@@ -79,9 +79,24 @@ const Login = () => {
     }else{
       setNameError('')
       firebase.auth.createUserWithEmailAndPassword(email, password).then((res)=>{
-       console.log(res.user.uid)
+        let currentUser = {
+          avatar: "",
+          displayName: name,
+          followers: 0,
+          following: 0,
+          likes: 0,
+          tweets: 0,
+          userId: res.user.uid,
+          username: "",
+          verified: true
+        }
+        firebase.db.collection('users').add(currentUser).then(()=>{
+          auth.login()
+          userProvider.setUserData(currentUser)
+          currentUser.username?redirectTo('home'):redirectTo('profile')
+        })
       }).catch(function(error) {
-    
+       
       });
      setOpen(false);
     }
