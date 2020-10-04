@@ -5,7 +5,7 @@ import { UserContext } from '../../context/UserContext'
 
 const Profile = () => {
     const UserProvider = useContext(UserContext)
-    console.log(UserProvider)
+    //console.log(UserProvider)
     return(
         <div className='home'>
           <p>Hello profile</p>
