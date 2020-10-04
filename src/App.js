@@ -6,6 +6,9 @@ import Login from './pages/login/Login.jsx'
 import Home from './pages/home/Home.jsx'
 import Profile from './pages/profile/Profile';
 import UnderConstruct from './pages/under-construction/UnderConstruction';
+import ProtectedRoute from './auth/ProtectedRoute'
+import RedirectRoute from './auth/RedirectRoute'
+
 
 class App extends Component {
   render() {
@@ -15,8 +18,8 @@ class App extends Component {
               <Router>
                   <div>
                       <Switch>
-                            <Route exact path = '/' component={Login}/>
-                            <Route path='/home' component={Home}/>
+                            <RedirectRoute exact path = '/' component={Login}/>
+                            <ProtectedRoute path='/home' component={Home}/>
                             <Route path='/profile' component={Profile}/>
                             <Route component={UnderConstruct}></Route>
                       </Switch>
