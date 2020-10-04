@@ -7,14 +7,13 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import Button from "@material-ui/core/Button"
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogActions from '@material-ui/core/DialogActions';
-// import IconButton from '@material-ui/core/IconButton';
-// import CloseIcon from '@material-ui/icons/Close';
 import { withStyles } from '@material-ui/core/styles';
 import './login.css';
 import firebase from '../../firebase';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'
 import {UserContext} from '../../context/UserContext'
+import auth from '../../auth/auth'
 
 
 const DialogActions = withStyles((theme) => ({
@@ -56,11 +55,10 @@ const Login = () => {
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.id, " => ", doc.data());
             currentUser = doc.data()
         });
     }).then(()=>{
+      auth.login()
       userProvider.setUserData(currentUser)
       currentUser.username?redirectTo('home'):redirectTo('profile')
     })
