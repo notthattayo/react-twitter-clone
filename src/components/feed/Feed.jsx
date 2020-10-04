@@ -26,9 +26,7 @@ const Feed = () => {
         <h2>Home</h2>
         </header>
         <TweetBox/>
-        {console.log(tweets)}
         {tweets.map((tweet)=>{
-          //console.log(tweet)
          return <Tweet
           key={tweet.id}
           displayName = {tweet.body?.displayName}
