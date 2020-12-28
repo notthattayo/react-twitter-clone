@@ -8,6 +8,7 @@ import Profile from './pages/profile/Profile';
 import UnderConstruct from './pages/under-construction/UnderConstruction';
 import ProtectedRoute from './auth/ProtectedRoute'
 import RedirectRoute from './auth/RedirectRoute'
+import TweetBoxMobile from './components/tweet-mobile/TweetboxMobile';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
                       <Switch>
                             <RedirectRoute exact path = '/' component={Login}/>
                             <ProtectedRoute path='/home' component={Home}/>
+                            <ProtectedRoute path='/tweet' component={TweetBoxMobile}/>
                             <Route path='/profile' component={Profile}/>
                             <Route component={UnderConstruct}></Route>
                       </Switch>

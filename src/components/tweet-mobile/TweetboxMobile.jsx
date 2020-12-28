@@ -1,4 +1,5 @@
 import React,{useState,useContext} from "react";
+import {useHistory} from 'react-router-dom'
 import "./tweetbox.css";
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
@@ -6,11 +7,14 @@ import firebase from '../../firebase'
 import { UserContext } from '../../context/UserContext'
 
 
-const TweetBox = () => {
+const TweetBoxMobile = () => {
   const [tweetMessage, setTweetMessage] = useState('');
   const [tweetImage, setTweetImage] = useState('');
   const UserProvider = useContext(UserContext)
-  
+  const history = useHistory()
+    const redirectTo = (path) => {
+        history.push(`/${path}`)
+     }
   
   const submitTweet = (e) => {
        e.preventDefault()
@@ -25,10 +29,11 @@ const TweetBox = () => {
        })
       
        setTweetMessage('')
+       redirectTo('home')
   }
 
   return (
-    <div className='tweetBox'>
+    <div className='tweetBox-mobile'>
         <form>
             <div className="tweetBox__input">
               <Avatar
@@ -49,4 +54,4 @@ const TweetBox = () => {
   );
 };
 
-export default TweetBox;
+export default TweetBoxMobile;

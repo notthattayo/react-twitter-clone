@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useHistory } from "react-router-dom";
 import "./sidebar.css";
 import SideBarOption from "./Sidebar-options";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -48,11 +48,18 @@ const sideBarDetails = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const location = useLocation();
+  const history = useHistory();
+
+  const tweetPath = () => {
+    history.push(`/tweet`)
+  }
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${props.slide?'active':''}`}>
       <TwitterIcon className="sidebar__twitterIcon"/>
+      <p className="sidebar__close" onClick={()=>props.setSlide(false)}>X</p>
       {sideBarDetails.map((sidebarDetail) => {
         if (location.pathname.includes(sidebarDetail.text.toLowerCase())) {
           return (
@@ -61,6 +68,7 @@ const Sidebar = () => {
               key={sidebarDetail.text}
               text={sidebarDetail.text}
               Icon={sidebarDetail.icon}
+              onClick={()=>props.setSlide(false)}
             />
           );
         } else {
@@ -69,11 +77,12 @@ const Sidebar = () => {
               key={sidebarDetail.text}
               text={sidebarDetail.text}
               Icon={sidebarDetail.icon}
+              onClick={()=>props.setSlide(false)}
             />
           );
         }
       })}
-      <Button variant="outlined" className='sidebar__button' fullWidth>Tweet</Button>
+      <Button variant="outlined" className='sidebar__button' fullWidth onClick={tweetPath}>Tweet</Button>
     </div>
   );
 };

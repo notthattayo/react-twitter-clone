@@ -1,0 +1,22 @@
+.login__button{
+    color: var(--twitter-color) !important;
+    border: var(--twitter-color) solid 1px !important;
+    border-radius: 20px !important;
+    padding:10px !important;
+    margin-top: 30px !important;
+    font-size: 0.8em !important;
+    height: 30px;
+
+}
+
+.login__loginButton{
+    display: block !important;
+    background-color: white!important;
+        color: var(--twitter-color)  !important;
+        border: 2px solid var(--twitter-color) !important;
+        font-weight: 900 !important;
+        text-transform: inherit !important;
+        border-radius: 30px !important;
+        height: 50px !important;
+        margin-top: 20px !important;
+}
