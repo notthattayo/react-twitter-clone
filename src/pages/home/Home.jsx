@@ -1,4 +1,4 @@
-import React, {useContext } from 'react' 
+import React, {useContext,useEffect, useState } from 'react' 
 import {useHistory} from 'react-router-dom'
 import './home.css';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -8,15 +8,19 @@ import { UserContext } from '../../context/UserContext'
 
 const Home = () => {
     const UserProvider = useContext(UserContext)
+    const [slide,setSlide] = useState(false)
     const history = useHistory()
     const redirectTo = (path) => {
         history.push(`/${path}`)
      }
-    UserProvider.userData.username?redirectTo('home'):redirectTo('profile')
+     useEffect(()=>{
+        UserProvider.userData.username? redirectTo('home') : redirectTo('profile')
+     },[])
+   
     return(
         <div className='home'>
-          <Sidebar active/>
-          <Feed/>
+          <Sidebar active slide={slide} setSlide={setSlide}/>
+          <Feed slide={slide} setSlide={setSlide}/>
           <Widgets/>
        </div>
     )

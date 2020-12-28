@@ -7,10 +7,15 @@ const SideBarOption = ({ active, text, Icon }) => {
   const redirect = (text) => {
     history.push(`/${text.toLowerCase()}`);
   };
+  const goToPage = (text) => {
+    if(text.toLowerCase()=== 'home' ||text.toLowerCase()=== 'profile' ){
+     redirect(text)
+    }
+  }
   return (
     <div
       className={`sidebarOption ${active && "sidebarOption--active"}`}
-      onClick={() => redirect(text)}
+      onClick={() => goToPage(text)}
     >
       <Icon />
       <h2>{text}</h2>

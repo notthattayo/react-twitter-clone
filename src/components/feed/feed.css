@@ -2,7 +2,7 @@
     flex:0.4 !important;
     border-right: 1px solid var(--twitter-background) !important;
     overflow-y: scroll;
-    min-width: fit-content;
+    /* min-width: fit-content; */
     min-height: 100vh;
 }
 .feed::-webkit-scrollbar {
@@ -12,6 +12,7 @@
     -ms-overflowstyle: none;
     scrollbar-width: none;
 }
+
 .feed__header {
     position: sticky;
     top: 0;
@@ -22,4 +23,33 @@
 }
 .feed__header h2 {
     font-size: 1.1em;
+}
+ .feed__header div {
+    display: none !important;
+}
+
+
+@media only screen and (max-width: 500px) {
+.feed{
+    flex: 1 !important;
+}
+
+.feed-active{
+    margin-left: -12em;
+}
+
+.feed__header h2 {
+    display: inline;
+    float: right;
+    margin-top: -2em;
+    margin-right: 70%;
+    padding-left: 0.9em;
+}
+.feed__header div {
+    display: block !important;
+    cursor: pointer;
+}
+.tweetBox {
+    display: none;
+}
 }
